@@ -9,7 +9,7 @@ const Dropdown = ({ data, onSelect }) => {
       {/* Button to Toggle Dropdown */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
         type="button"
       >
         Species
@@ -33,9 +33,9 @@ const Dropdown = ({ data, onSelect }) => {
       {/* Dropdown Content */}
       {isOpen && (
         <div
-          className="absolute z-10 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow-md w-44 dark:bg-gray-700 max-h-80 overflow-y-auto"
+          className="dropdown-list absolute z-10 mt-2 divide-y divide-gray-100 rounded-lg shadow-md w-44 max-h-80 overflow-y-auto"
         >
-          <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+          <ul className="py-2 text-sm">
             {data.length > 0 ? (
               data.map((item, index) => (
                 <li key={index}>

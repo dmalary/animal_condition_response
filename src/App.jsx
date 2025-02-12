@@ -7,7 +7,6 @@ import { createClient } from "@supabase/supabase-js";
 import { supaKey } from '../config';
 
 import Dropdown  from '../components/Dropdown';
-// import RenderLine from '../components/RenderLine';
 import RenderBarVert from '../components/RenderBarVert'
 import RenderRadar from '../components/RenderRadar'
 import RenderScatter from '../components/RenderScatter'
@@ -53,28 +52,28 @@ import RenderScatter from '../components/RenderScatter'
     // console.log('timeData', timeData)
 
     return (
-      <div className='min-h-200 min-w-200'>
+      <div className='min-h-200 md:min-w-200'>
         {error && <p>Error: {error}</p>}
         {!loading && !error && (
-          <div className='grid grid-cols-4 gap-4 mx-auto'>
+          <div className='grid grid-cols-1 md:grid-cols-4 gap-4 mx-auto'>
             <div className='col-span-4 text-left'>
-              <h1 className="text-lg font-bold max-w-130">NYC Parks Animal Condition Response</h1>
-              <br />
-              <h2 className="text-lg font-bold">{selectedSpecies || "Pick a species"}</h2>
-              <Dropdown data={dropdownDataArray} onSelect={setSelectedSpecies} />
+              <h1 className="text-lg font-bold md:max-w-130 mt-2 mb-4">NYC Parks Animal Condition Response</h1>
+              <hr className="title-divider md:w-100 h-2 my-5 border-0 rounded-sm"></hr>
+              <p className='md:max-w-200'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+              <div className='my-4'>
+              <h2 className="text-lg font-bold my-4">{selectedSpecies || "Pick a species"}</h2>
+                <Dropdown data={dropdownDataArray} onSelect={setSelectedSpecies} />
+              </div>
             </div>
-            <div className='col-span-2 mx-auto'>
+            {/* <div className='col-span-2 mx-auto'>
               <RenderBarVert data={filterData}/>
             </div>
             <div className='col-span-2 mx-auto'>
               <RenderRadar data={filterData}/>
             </div>
-            {/* <div className='col-span-4 mx-auto'>
-              <RenderLine data={filterData}/>
-            </div> */}
             <div className='col-span-4 mx-auto'>
               <RenderScatter data={filterData}/>
-            </div>
+            </div> */}
           </div>
         )}
       </div>
