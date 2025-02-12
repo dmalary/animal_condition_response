@@ -52,7 +52,7 @@ import RenderScatter from '../components/RenderScatter'
     // console.log('timeData', timeData)
 
     return (
-      <div className='min-h-200 md:min-w-200'>
+      <div className='min-h-220 md:min-w-200'>
         {error && <p>Error: {error}</p>}
         {!loading && !error && (
           // <div className='grid grid-cols-1 md:grid-cols-4 md:gap-4 mx-auto'>
@@ -64,9 +64,9 @@ import RenderScatter from '../components/RenderScatter'
               <hr className="title-divider md:w-100 h-2 my-5 border-0 rounded-sm"></hr>
               <p className="max-w-2xl py-2">This dashboard provides insights into the responses of urban park rangers to animal incidents. Select a species from the dropdown menu to explore data on:</p>
               <ul className='max-w-2xl py-2"'>
-                <li className='py-1'><strong>Incident Counts by Borough:</strong> View the number of incidents per borough.</li>
-                <li className='py-1'><strong>Animal Condition During Rescue:</strong> Examine the condition of the animals during their rescue.</li>
-                <li className='py-1'><strong>Weekday Distribution of Incidents:</strong> See how incidents are spread across different days of the week.</li>
+                <li className='py-1'><strong>Incident Counts by Borough:</strong> (Chart: Bar) | View the number of incidents per borough.</li>
+                <li className='py-1'><strong>Animal Condition During Rescue:</strong> (Chart: Radar) | Examine the condition of the animals during their rescue.</li>
+                <li className='py-1'><strong>Weekday Distribution of Incidents:</strong> (Chart: Scatter) | See how incidents are spread across different days of the week.</li>
               </ul>
               <hr className="title-divider h-0.5 my-5 border-0 rounded-sm"></hr>
               <div className='my-4'>
@@ -74,7 +74,9 @@ import RenderScatter from '../components/RenderScatter'
                 <Dropdown data={dropdownDataArray} onSelect={setSelectedSpecies} />
               </div>
             </div>
-            
+            {filterData.length === 0 ?
+            <div></div>
+            :
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="w-full p-4 pl-0 pb-2 bg-white shadow rounded-lg w-100 h-100">
                 <RenderBarVert data={filterData} />
@@ -88,6 +90,7 @@ import RenderScatter from '../components/RenderScatter'
                 <RenderScatter data={filterData} />
               </div>
             </div>
+            }
           </div>
         )}
       </div>

@@ -61,7 +61,7 @@ const Dropdown = ({ data, onSelect }) => {
                       onSelect(item); // Send selected item to parent
                       setIsOpen(false); // Close dropdown
                     }}
-                    className="w-full text-left block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    className="list-item w-full text-left block px-4 py-2"
                   >
                     {item}
                   </a>

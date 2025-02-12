@@ -51,6 +51,11 @@ button {
   color: #0f61a9;
 }
 
+.list-item:hover {
+  color: #ffffff;
+  background-color: #0f61a9;
+}
+
 /* button {
   border-radius: 8px;
   border: 1px solid transparent;
