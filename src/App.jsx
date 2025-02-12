@@ -7,9 +7,10 @@ import { createClient } from "@supabase/supabase-js";
 import { supaKey } from '../config';
 
 import Dropdown  from '../components/Dropdown';
-import RenderLine from '../components/RenderLine';
+// import RenderLine from '../components/RenderLine';
 import RenderBarVert from '../components/RenderBarVert'
 import RenderRadar from '../components/RenderRadar'
+import RenderScatter from '../components/RenderScatter'
 
   const supabase = createClient("https://xyvyhlsnixwgdenajxxk.supabase.co", supaKey);
 
@@ -57,7 +58,7 @@ import RenderRadar from '../components/RenderRadar'
         {!loading && !error && (
           <div className='grid grid-cols-4 gap-4 mx-auto'>
             <div className='col-span-4 text-left'>
-              <h1 className="text-lg font-bold">NYC Animal Response</h1>
+              <h1 className="text-lg font-bold max-w-130">NYC Parks Animal Condition Response</h1>
               <br />
               <h2 className="text-lg font-bold">{selectedSpecies || "Pick a species"}</h2>
               <Dropdown data={dropdownDataArray} onSelect={setSelectedSpecies} />
@@ -68,8 +69,11 @@ import RenderRadar from '../components/RenderRadar'
             <div className='col-span-2 mx-auto'>
               <RenderRadar data={filterData}/>
             </div>
-            <div className='col-span-4 mx-auto'>
+            {/* <div className='col-span-4 mx-auto'>
               <RenderLine data={filterData}/>
+            </div> */}
+            <div className='col-span-4 mx-auto'>
+              <RenderScatter data={filterData}/>
             </div>
           </div>
         )}
