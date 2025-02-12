@@ -9,6 +9,7 @@ import { supaKey } from '../config';
 import Dropdown  from '../components/Dropdown';
 import RenderLine from '../components/RenderLine';
 import RenderBarVert from '../components/RenderBarVert'
+import RenderRadar from '../components/RenderRadar'
 
   const supabase = createClient("https://xyvyhlsnixwgdenajxxk.supabase.co", supaKey);
 
@@ -51,13 +52,14 @@ import RenderBarVert from '../components/RenderBarVert'
     // console.log('timeData', timeData)
 
     return (
-      <div className='min-h-200'>
+      <div className='min-h-200 min-w-200'>
         {error && <p>Error: {error}</p>}
         {!loading && !error && (
           <>
             <h1 className="text-lg font-bold">{selectedSpecies || "Pick a species"}</h1>
             <Dropdown data={dropdownDataArray} onSelect={setSelectedSpecies} />
             <RenderBarVert data={filterData}/>
+            <RenderRadar data={filterData}/>
             <RenderLine data={filterData}/>
           </>
         )}
