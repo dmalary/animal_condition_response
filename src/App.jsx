@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import * as d3 from 'd3'
 
 import './App.css'
 
@@ -8,7 +9,8 @@ import { supaKey } from '../config';
   const supabase = createClient("https://xyvyhlsnixwgdenajxxk.supabase.co", supaKey);
 
   function App() {
-    const [incidents, setIncidents] = useState([]);const [loading, setLoading] = useState(true); 
+    const [loading, setLoading] = useState(true); 
+    const [incidents, setIncidents] = useState([]);
     const [error, setError] = useState(null); 
 
     useEffect(() => {
@@ -16,9 +18,6 @@ import { supaKey } from '../config';
     }, []);
 
     async function getIncidents() {
-      const { data } = await supabase.from("urban_park_ranger_animal_response").select();
-      setIncidents(data);
-
       try {
         setLoading(true); // Start loading
         const { data, error } = await supabase.from("urban_park_ranger_animal_response").select();
@@ -34,12 +33,17 @@ import { supaKey } from '../config';
       }
     }
 
-    console.log('incidents', incidents)
+    // console.log('incidents', incidents)
+    const dropdownDataMap = d3.rollup(incidents, v => v.length, inc => inc.species_description); 
+
+    const dropdownDataArray = Array.from(dropdownDataMap.keys());
+
+    incidents && console.log('dropdownDataArray', dropdownDataArray);
 
     return (
       <>
         <div>
-        {loading && <p>Loading incidents...</p>}
+        {/* {loading && <p>Loading incidents...</p>} */}
         {error && <p>Error: {error}</p>}
         {!loading && !error && (
           incidents.length
