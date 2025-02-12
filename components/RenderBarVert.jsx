@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import * as d3 from 'd3'
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
-
-
+import { BarChart, Bar, XAxis, YAxis, 
+  // Tooltip, 
+  ResponsiveContainer } from 'recharts';
 
 const RenderBarVert = ({data}) => {
 
