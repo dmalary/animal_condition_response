@@ -74,8 +74,8 @@ import RenderScatter from '../components/RenderScatter'
                 <RenderBarVert data={filterData} />
               </div>
 
-              <div className="w-full p-4 bg-white shadow rounded-lg">
-                {/* <RenderRadar data={filterData} /> */}
+              <div className="w-full p-4 bg-white shadow rounded-lg w-100 h-100">
+                <RenderRadar data={filterData} />
               </div>
 
               <div className="w-full md:col-span-2 p-4 bg-white shadow rounded-lg">
