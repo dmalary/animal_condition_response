@@ -70,8 +70,8 @@ import RenderScatter from '../components/RenderScatter'
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="w-full p-4 bg-white shadow rounded-lg">
-                {/* <RenderBarVert data={filterData} /> */}
+              <div className="w-full p-4 pl-0 pb-2 bg-white shadow rounded-lg w-100 h-100">
+                <RenderBarVert data={filterData} />
               </div>
 
               <div className="w-full p-4 bg-white shadow rounded-lg">

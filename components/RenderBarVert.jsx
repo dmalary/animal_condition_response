@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import * as d3 from 'd3'
-import { BarChart, Bar, XAxis, YAxis, } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+
 
 
 const RenderBarVert = ({data}) => {
@@ -14,14 +15,15 @@ const RenderBarVert = ({data}) => {
   console.log('boroughCounts', boroughCounts)
   return (
     <>
-      {/* <BarChart data={boroughCounts} margin={{ top: 20, right: 30, left: 20, bottom: 40 }}> */}
-      <BarChart width={400} height={400} data={boroughCounts}
-        margin={{ bottom: 60 }}
+    <ResponsiveContainer width="100%" height="100%">
+      <BarChart width={500} height={300} data={boroughCounts}
+        margin={{ bottom: 50 }}
       >
         <XAxis dataKey="borough" angle={-45} textAnchor="end" />
         <YAxis />
-        <Bar dataKey="count" fill="#8884d8" />
+        <Bar dataKey="count" fill="#0f61a9" />
       </BarChart>
+      </ResponsiveContainer>
     </>
   )
 }
