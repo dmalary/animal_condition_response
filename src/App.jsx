@@ -7,6 +7,7 @@ import { createClient } from "@supabase/supabase-js";
 import { supaKey } from '../config';
 
 import Dropdown  from '../components/Dropdown';
+import RenderLine from '../components/RenderLine';
 
   const supabase = createClient("https://xyvyhlsnixwgdenajxxk.supabase.co", supaKey);
 
@@ -41,9 +42,12 @@ import Dropdown  from '../components/Dropdown';
 
     const dropdownDataArray = Array.from(dropdownDataMap.keys());
 
+    const timeData = incidents.filter(el => el.species_description === selectedSpecies);
+
     // console.log('incidents', incidents)
     // incidents && console.log('dropdownDataArray', dropdownDataArray);
     // console.log('selectedSpecies', selectedSpecies)
+    // console.log('timeData', timeData)
 
     return (
       <div className='min-h-200'>
@@ -52,6 +56,7 @@ import Dropdown  from '../components/Dropdown';
           <>
             <h1 className="text-lg font-bold">{selectedSpecies || "Pick a species"}</h1>
             <Dropdown data={dropdownDataArray} onSelect={setSelectedSpecies} />
+            <RenderLine data={timeData}/>
           </>
         )}
       </div>
