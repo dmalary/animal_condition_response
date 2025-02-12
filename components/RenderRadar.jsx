@@ -13,16 +13,20 @@ const RenderRadar = ({data}) => {
   );
   
   // console.log('data', data);
-  console.log('radarData', radarData)
+  // console.log('radarData', radarData)
 
   return (
     <>
+      {(radarData.length > 0 && radarData.length <= 2 ) ?
+      <div>Not enough data available</div>  
+      :
       <RadarChart cx="50%" cy="50%" outerRadius="80%" data={radarData} width={400} height={400}>
           {/* <PolarGrid />
           <PolarAngleAxis dataKey="condition" />
           <PolarRadiusAxis /> */}
           <Radar dataKey="count" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
         </RadarChart>
+        }
     </>
   )
 }
