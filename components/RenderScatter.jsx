@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
-import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { ScatterChart, Scatter, XAxis, YAxis, ResponsiveContainer
+  // CartesianGrid, Tooltip,  
+} from 'recharts';
 
 const dayLabels = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -25,18 +27,20 @@ const RenderScatter = ({data}) => {
   console.log('scatterData', scatterData)
   return (
     <>
-      {scatterData.length > 0 && 
-        <ScatterChart
-        margin={{ top: 20, right: 20, bottom: 20, left: 20,}}
-        width={600} height={200}
-        >
-        {/* <CartesianGrid strokeDasharray="3 3" /> */}
-        <XAxis type="category" dataKey="x" name="day" tick={{ fontSize: 12 }}  />
-        <YAxis type="number" dataKey="y" name="count" />
-        {/* <Tooltip cursor={{ strokeDasharray: '3 3' }} /> */}
-        <Scatter  data={scatterData} fill="#8884d8" />
-      </ScatterChart>
-      }
+      <ResponsiveContainer width="100%" height="100%">
+        {scatterData.length > 0 && 
+          <ScatterChart
+          margin={{ top: 20, right: 20, bottom: 20, left: 20,}}
+          width={900} height={400}
+          >
+          {/* <CartesianGrid strokeDasharray="3 3" /> */}
+          <XAxis type="category" dataKey="x" name="day" tick={{ fontSize: 12 }}  />
+          <YAxis type="number" dataKey="y" name="count" />
+          {/* <Tooltip cursor={{ strokeDasharray: '3 3' }} /> */}
+          <Scatter  data={scatterData} fill="#0f61a9" />
+        </ScatterChart>
+        }
+      </ResponsiveContainer>
     </>
   )
 }

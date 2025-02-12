@@ -84,20 +84,10 @@ import RenderScatter from '../components/RenderScatter'
                 <RenderRadar data={filterData} />
               </div>
 
-              <div className="w-full md:col-span-2 p-4 bg-white shadow rounded-lg">
-                {/* <RenderScatter data={filterData} /> */}
+              <div className="w-full p-4 pl-0 pb-2 md:col-span-2 p-4 bg-white shadow rounded-lg w-200 h-100">
+                <RenderScatter data={filterData} />
               </div>
             </div>
-
-            {/* <div className='col-span-2 mx-auto'>
-              <RenderBarVert data={filterData}/>
-            </div>
-            <div className='col-span-2 mx-auto'>
-              <RenderRadar data={filterData}/>
-            </div>
-            <div className='col-span-4 mx-auto'>
-              <RenderScatter data={filterData}/>
-            </div> */}
           </div>
         )}
       </div>
