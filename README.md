@@ -1,8 +1,10 @@
-# React + Vite
+# NYC Parks Animal Condition Response
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+This dashboard provides insights into the responses of urban park rangers to animal incidents. Select a species from the dropdown menu to explore data on:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Incident Counts by Borough: (Chart: Bar) | View the number of incidents per borough.
+- Animal Condition During Rescue: (Chart: Radar) | Examine the condition of the animals during their rescue.
+- Weekday Distribution of Incidents: (Chart: Scatter) | See how incidents are spread across different days of the week.
+
+https://dmalary.github.io/animal_condition_response/
