@@ -6,12 +6,15 @@ import './App.css'
 import { createClient } from "@supabase/supabase-js";
 import { supaKey } from '../config';
 
+import Dropdown  from '../components/Dropdown';
+
   const supabase = createClient("https://xyvyhlsnixwgdenajxxk.supabase.co", supaKey);
 
   function App() {
     const [loading, setLoading] = useState(true); 
     const [incidents, setIncidents] = useState([]);
     const [error, setError] = useState(null); 
+    const [selectedSpecies, setSelectedSpecies] = useState(null);
 
     useEffect(() => {
       getIncidents();
@@ -33,23 +36,25 @@ import { supaKey } from '../config';
       }
     }
 
-    // console.log('incidents', incidents)
+    
     const dropdownDataMap = d3.rollup(incidents, v => v.length, inc => inc.species_description); 
 
     const dropdownDataArray = Array.from(dropdownDataMap.keys());
 
-    incidents && console.log('dropdownDataArray', dropdownDataArray);
+    // console.log('incidents', incidents)
+    // incidents && console.log('dropdownDataArray', dropdownDataArray);
+    // console.log('selectedSpecies', selectedSpecies)
 
     return (
-      <>
-        <div>
-        {/* {loading && <p>Loading incidents...</p>} */}
+      <div className='min-h-200'>
         {error && <p>Error: {error}</p>}
         {!loading && !error && (
-          incidents.length
+          <>
+            <h1 className="text-lg font-bold">{selectedSpecies || "Pick a species"}</h1>
+            <Dropdown data={dropdownDataArray} onSelect={setSelectedSpecies} />
+          </>
         )}
-        </div>
-      </>
+      </div>
     );
   }
 
