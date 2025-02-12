@@ -62,7 +62,13 @@ import RenderScatter from '../components/RenderScatter'
             <div className="text-left mb-6">
               <h1 className="text-lg font-bold md:max-w-130 mt-2 mb-4">NYC Parks Animal Condition Response</h1>
               <hr className="title-divider md:w-100 h-2 my-5 border-0 rounded-sm"></hr>
-              <p className="max-w-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+              <p className="max-w-2xl py-2">This dashboard provides insights into the responses of urban park rangers to animal incidents. Select a species from the dropdown menu to explore data on:</p>
+              <ul className='max-w-2xl py-2"'>
+                <li className='py-1'><strong>Incident Counts by Borough:</strong> View the number of incidents per borough.</li>
+                <li className='py-1'><strong>Animal Condition During Rescue:</strong> Examine the condition of the animals during their rescue.</li>
+                <li className='py-1'><strong>Weekday Distribution of Incidents:</strong> See how incidents are spread across different days of the week.</li>
+              </ul>
+              <hr className="title-divider h-0.5 my-5 border-0 rounded-sm"></hr>
               <div className='my-4'>
               <h2 className="text-lg font-bold my-4">{selectedSpecies || "Pick a species"}</h2>
                 <Dropdown data={dropdownDataArray} onSelect={setSelectedSpecies} />
