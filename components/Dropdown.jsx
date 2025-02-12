@@ -1,11 +1,28 @@
-import { useState } from "react";
-
 /* eslint-disable react/prop-types */
+
+import { useState, useRef, useEffect } from "react";
+
 const Dropdown = ({ data, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+    
+    // Add event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Cleanup event listener
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
-    <div className="relative inline-block text-left">
+    <div className="relative inline-block text-left" ref={dropdownRef}>
       {/* Button to Toggle Dropdown */}
       <button
         onClick={() => setIsOpen(!isOpen)}
