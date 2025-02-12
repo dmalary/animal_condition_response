@@ -55,13 +55,23 @@ import RenderRadar from '../components/RenderRadar'
       <div className='min-h-200 min-w-200'>
         {error && <p>Error: {error}</p>}
         {!loading && !error && (
-          <>
-            <h1 className="text-lg font-bold">{selectedSpecies || "Pick a species"}</h1>
-            <Dropdown data={dropdownDataArray} onSelect={setSelectedSpecies} />
-            <RenderBarVert data={filterData}/>
-            <RenderRadar data={filterData}/>
-            <RenderLine data={filterData}/>
-          </>
+          <div className='grid grid-cols-4 gap-4 mx-auto'>
+            <div className='col-span-4 text-left'>
+              <h1 className="text-lg font-bold">NYC Animal Response</h1>
+              <br />
+              <h2 className="text-lg font-bold">{selectedSpecies || "Pick a species"}</h2>
+              <Dropdown data={dropdownDataArray} onSelect={setSelectedSpecies} />
+            </div>
+            <div className='col-span-2 mx-auto'>
+              <RenderBarVert data={filterData}/>
+            </div>
+            <div className='col-span-2 mx-auto'>
+              <RenderRadar data={filterData}/>
+            </div>
+            <div className='col-span-4 mx-auto'>
+              <RenderLine data={filterData}/>
+            </div>
+          </div>
         )}
       </div>
     );
