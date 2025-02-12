@@ -6,7 +6,7 @@ const RenderLine = ({data}) => {
 
   const formattedData = data.map(d => ({
     ...d,
-    ranger_response_datetime: new Date(d.ranger_response_datetime).getHours(), 
+    ranger_response_datetime: new Date(d.ranger_response_datetime).getDay(), 
   }));
 
   // console.log('data', data)
