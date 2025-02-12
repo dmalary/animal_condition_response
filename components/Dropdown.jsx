@@ -33,7 +33,7 @@ const Dropdown = ({ data, onSelect }) => {
       {/* Dropdown Content */}
       {isOpen && (
         <div
-          className="absolute z-10 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow-md w-44 dark:bg-gray-700"
+          className="absolute z-10 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow-md w-44 dark:bg-gray-700 max-h-80 overflow-y-auto"
         >
           <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
             {data.length > 0 ? (
