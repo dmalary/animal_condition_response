@@ -8,6 +8,7 @@ import { supaKey } from '../config';
 
 import Dropdown  from '../components/Dropdown';
 import RenderLine from '../components/RenderLine';
+import RenderBarVert from '../components/RenderBarVert'
 
   const supabase = createClient("https://xyvyhlsnixwgdenajxxk.supabase.co", supaKey);
 
@@ -42,7 +43,7 @@ import RenderLine from '../components/RenderLine';
 
     const dropdownDataArray = Array.from(dropdownDataMap.keys());
 
-    const timeData = incidents.filter(el => el.species_description === selectedSpecies);
+    const filterData = incidents.filter(el => el.species_description === selectedSpecies);
 
     // console.log('incidents', incidents)
     // incidents && console.log('dropdownDataArray', dropdownDataArray);
@@ -56,7 +57,8 @@ import RenderLine from '../components/RenderLine';
           <>
             <h1 className="text-lg font-bold">{selectedSpecies || "Pick a species"}</h1>
             <Dropdown data={dropdownDataArray} onSelect={setSelectedSpecies} />
-            <RenderLine data={timeData}/>
+            <RenderBarVert data={filterData}/>
+            <RenderLine data={filterData}/>
           </>
         )}
       </div>
