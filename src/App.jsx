@@ -55,16 +55,34 @@ import RenderScatter from '../components/RenderScatter'
       <div className='min-h-200 md:min-w-200'>
         {error && <p>Error: {error}</p>}
         {!loading && !error && (
-          <div className='grid grid-cols-1 md:grid-cols-4 gap-4 mx-auto'>
-            <div className='col-span-4 text-left'>
+          // <div className='grid grid-cols-1 md:grid-cols-4 md:gap-4 mx-auto'>
+          //   <div className='col-span-4 text-left'>
+          <div className="max-w-6xl mx-auto">
+          {/* HEADER & DROPDOWN */}
+            <div className="text-left mb-6">
               <h1 className="text-lg font-bold md:max-w-130 mt-2 mb-4">NYC Parks Animal Condition Response</h1>
               <hr className="title-divider md:w-100 h-2 my-5 border-0 rounded-sm"></hr>
-              <p className='md:max-w-200'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+              <p className="max-w-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
               <div className='my-4'>
               <h2 className="text-lg font-bold my-4">{selectedSpecies || "Pick a species"}</h2>
                 <Dropdown data={dropdownDataArray} onSelect={setSelectedSpecies} />
               </div>
             </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="w-full p-4 bg-white shadow rounded-lg">
+                {/* <RenderBarVert data={filterData} /> */}
+              </div>
+
+              <div className="w-full p-4 bg-white shadow rounded-lg">
+                {/* <RenderRadar data={filterData} /> */}
+              </div>
+
+              <div className="w-full md:col-span-2 p-4 bg-white shadow rounded-lg">
+                {/* <RenderScatter data={filterData} /> */}
+              </div>
+            </div>
+
             {/* <div className='col-span-2 mx-auto'>
               <RenderBarVert data={filterData}/>
             </div>
